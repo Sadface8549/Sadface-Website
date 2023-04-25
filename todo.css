@@ -1,0 +1,91 @@
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+
+
+
+body {
+    background: linear-gradient(to bottom, #ff0000, #0000ff);
+    animation: gradient 1s ease infinite;
+  }
+  
+.main{
+    display: flex;
+    justify-content: center;
+    font-family: Journal;
+    font-size: 20px;
+    align-items: center;
+    zoom: 160%;
+   
+
+}
+.butba{
+    
+    background-color: transparent;
+    border-style: none;
+    cursor: pointer;
+    height: 10px;
+    margin-top: -15px;
+
+}
+.back{
+    background-color: transparent;
+}
+
+.input{
+    display: flex;
+    height: 30px;
+    width: -30px;
+    justify-content: center;
+    zoom: 160%;
+}
+.to-do-Title{
+    border-radius: 60px;
+    margin-right: 6px;
+    background-color: transparent;
+    
+}
+
+.date{
+    background-color: transparent;
+    border-radius: 60pc;
+    margin-left: 100px;
+}
+
+.add{
+    
+background-color: transparent;
+border-radius: 60px;
+font-family: Journal;
+cursor: pointer;
+font-size: larger;
+}
+
+.list{
+    margin-top: 30px;
+    zoom: 160%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.deleteButton{
+    
+    background-color: transparent;
+    border-radius: 60px;
+   
+
+}

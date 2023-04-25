@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <link rel="stylesheet" href="Test.css">
+    <meta charset="utf-8">
+
+    <style>
+        @font-face {
+            font-family: Journal;
+            src: url(journal-webfont.woff);
+        }
+    </style>
+    <title>Sadfaces' Website</title>
+
+    
+
+</head>
+
+
+
+
+
+
+
+
+
+<body style = "background-color: black;">
+   
+
+   
+    <div class="header">
+        
+        <div class="H-left">
+            <div><button id="menub"class="menu-toggle" style="background-color: transparent; border-style:none"><img class="ham" src="IMG_8007.jpg" ></button>
+            </div>
+            <div id = "menii" class="menu">
+                <ul class="menu-list">
+                    <a href="About-me.html" style="color: white; "><li >About Me</li></a>
+                    <li>         </li>
+                    <a href="todo.html" style="color: white; "><li>To-Do App</li></a>
+                </ul>
+
+            </div>
+        </div>
+    
+        <div class="H-middle">
+            <h1><button id="colorBtn" class="Main-text" onclick="changeTextColor()"><strong> Sadfaces' Website</strong></button></h1>
+        </div>
+
+        <div class="H-right">
+            <p>Enjoy your stay!</p>
+        </div>
+
+    </div>
+
+    <div class="bod">
+        <img src="cyberpunk.gif" class="backg" >
+    </div>
+
+   
+
+<script>
+   function getRandomColor() {
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return "rgb(" + r + ", " + g + ", " + b + ")";
+    }   
+   
+
+    function changeTextColor() {
+    var button = document.getElementById("colorBtn");
+    button.style.color = getRandomColor();
+    }
+
+    var myButton = document.getElementById("menub");
+    myButton.addEventListener("click", function() {
+    alert("Me every morning! :)");
+    });
+
+
+</script>
+  
+ 
+
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,127 @@
+<html>
+  <head>
+    <title>Sadfaces To-Do</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="todo.css">
+
+    <style>
+        @font-face {
+            font-family: Journal;
+            src: url(journal-webfont.woff);
+        }
+    </style>
+
+  </head>
+  <body>
+    
+    <div class="main">
+        
+        <a href="Test.html"><button class="butba"><img class="back" src="Back.png"></button></a>
+        <h1>Sadfaces To-Do List</h1>
+    </div>
+    <div class="input">
+    <input  class="to-do-Title" id="todo-title" type="text" placeholder="Enter To-Do here" />
+    <button class="add" onclick="addTodo()">Add Todo</button>
+    <input class="date" size = 20 id="date-picker" type="date" />
+    </div>
+
+    <div class="list" id="todo-list">
+    </div>
+
+
+    
+    
+
+    <script>
+      let todos;
+
+
+      const savedTodos = JSON.parse(localStorage.getItem('todos'));
+      if (Array.isArray(savedTodos)) {
+        todos = savedTodos;
+      } else {
+        todos = [{
+          title: 'Get pizza',
+          dueDate: '2021-10-04',
+          id: 'id1'
+        }];
+      }
+
+ 
+      const createTodo = (title, dueDate) => {
+        const id = '' + new Date().getTime();
+
+        todos.push({
+          title: title,
+          dueDate: dueDate,
+          id: id
+        });
+
+        saveTodos();
+      }
+
+      const removeTodo = idToDelete => {
+        todos = todos.filter(todo => {
+          if (todo.id === idToDelete) {
+            return false;
+          } else {
+            return true;
+          }
+        });
+
+        saveTodos();
+      }
+
+      const saveTodos = () => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+      }
+
+      const addTodo = () => {
+        const textbox = document.getElementById('todo-title');
+        const title = textbox.value;
+
+        const datePicker = document.getElementById('date-picker');
+        const dueDate = datePicker.value;
+
+        createTodo(title, dueDate);
+        render();
+      }
+
+      const deleteTodo = event => {
+        const deleteButton = event.target;
+        const idToDelete = deleteButton.id;
+
+        removeTodo(idToDelete);
+        render();
+      }
+
+
+      const render = () => {
+        document.getElementById('todo-list').innerHTML = '';
+
+        todos.forEach(todo => {
+          const element = document.createElement('div');
+          element.innerText = todo.title + ' ' + todo.dueDate;
+          
+
+          const deleteButton = document.createElement('button');
+          deleteButton.innerText = 'Delete';
+          deleteButton.style = 'margin-left: 12px';
+          deleteButton.style.backgroundColor = 'transparent';
+          deleteButton.style.borderRadius = '60px';
+          deleteButton.style.fontFamily = 'Journal'
+          deleteButton.style.fontSize = 'Larger'
+          deleteButton.style.cursor = 'Pointer'
+          deleteButton.onclick = deleteTodo;
+          deleteButton.id = todo.id;
+          element.appendChild(deleteButton);
+
+          const todoList = document.getElementById('todo-list');
+          todoList.appendChild(element);
+        });
+      }
+
+      render();
+    </script>
+  </body>
+</html>
